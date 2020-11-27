@@ -137,6 +137,7 @@ header {
         flex-direction: column;
         display: none;
         padding-bottom: 1rem;
+        margin: 0 0 0 0;
         height: unset;
     }
 
