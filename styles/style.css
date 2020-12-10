@@ -21,12 +21,12 @@ main {
     position: relative;
 }
 
-.console .console:nth-child(odd) .console_images {
+.consoles .console:nth-child(odd) .console_images {
     float: left;
     margin: 10px 30px 10px 0;
 }
 
-.console .console:nth-child(even) .console_images {
+.consoles .console:nth-child(even) .console_images {
     float: right;
     margin: 10px 0 10px 30px;
 }
@@ -123,6 +123,104 @@ main {
     margin: 0 auto 0 auto;
 }
 
+.search {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 20px;
+    transition: all 0.7s ease-out;
+}
+
+.search_input {
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.7s ease-out;
+}
+
+.search_input::-ms-clear {
+    display: none;
+}
+
+.search_button {
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    outline: none;
+    top: 0;
+    right: 0;
+    transition: all 0.7s ease-out;
+    width: 30px;
+    height: 30px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 100%;
+}
+
+.search_button_before, .search_button_after {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    transition: all 0.7s ease-out;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.search_button_before {
+    transform: rotate(45deg);
+    top: 32px;
+    right: -16px;
+}
+
+.search_button_after {
+    transform: rotate(-45deg);
+    top: 50%;
+    right: 5px;
+    opacity: 0;
+}
+
+.search_active {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.search_active .search_input{
+    width: 360px;
+    background-color: white;
+    color: rgb(53, 53, 53);
+    padding: 3px 35px 3px 5px;
+    border-radius: 5px;
+}
+
+.search_active .search_button_before {
+    top: 50%;
+    right: 5px;
+}
+
+.search_active .search_button_after {
+    opacity: 1;
+}
+
+.search_white_theme .search_input{
+    border-color: rgb(221, 221, 221);
+    color: rgb(221, 221, 221);
+}
+
+.search_white_theme.search_active .search_input {
+    background-color: rgb(2, 12, 76);
+}
+
+.search_white_theme .search_button_before,
+.search_white_theme .search_button_after {
+    background-color: rgb(221, 221, 221);
+}
+
 @media screen and (max-width: 800px) {
     :root {
         --margin-wrap: 15px;
@@ -152,11 +250,11 @@ main {
         width: 100%;
     }
 
-    .console .console:nth-child(odd) .console_images {
+    .consoles .console:nth-child(odd) .console_images {
         margin-right: 0;
     }
 
-    .console .console:nth-child(even) .console_images {
+    .consoles .console:nth-child(even) .console_images {
         margin-left: 0;
     }
 }

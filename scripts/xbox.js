@@ -1,6 +1,6 @@
 const content = {
     currentId: 0,
-
+    filter: "",
     consoles: [
         {
             title: "XBOX 360",

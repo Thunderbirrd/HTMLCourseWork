@@ -149,7 +149,7 @@ const createConsole = (title, images, texts) => {
     return divRiver;
 }
 
-const divConsoles = document.querySelector(".console");
+const divConsoles = document.querySelector(".consoles");
 
 const addConsole = () => {
     let scrollHeight = Math.max(
@@ -159,14 +159,24 @@ const addConsole = () => {
     );
 
     if (window.pageYOffset + document.documentElement.clientHeight + 300 < scrollHeight) return;
+
+    while (content.currentId < content.consoles.length &&
+    !content.consoles[content.currentId].title.toLowerCase().includes(content.filter.toLowerCase())) {
+    content.currentId++;
+  }
+
     if (content.currentId > content.consoles.length - 1) return;
 
-    const {title, images, texts} = content.consoles[content.currentId];
+    let data = content.consoles[content.currentId],
+      title = data.title,
+      images = data.images,
+      texts = data.texts;
+
     content.currentId++;
 
-    const newRiver = createConsole(title, images, texts);
-    divConsoles.appendChild(newRiver);
-    setUpImages(newRiver);
+    const newConsole = createConsole(title, images, texts);
+    divConsoles.appendChild(newConsole);
+    setUpImages(newConsole);
 }
 
 window.addEventListener("click", (e)  => {
