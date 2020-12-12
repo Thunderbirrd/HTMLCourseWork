@@ -139,14 +139,14 @@ const createText = (texts) => {
 }
 
 const createConsole = (title, images, texts) => {
-    const divRiver = document.createElement("div");
-    divRiver.classList.add("console");
-    divRiver.classList.add("pop_up_element");
+    const divConsole = document.createElement("div");
+    divConsole.classList.add("console");
+    divConsole.classList.add("pop_up_element");
 
-    divRiver.appendChild(createConsoleTitle(title));
-    divRiver.appendChild(createImages(images, title));
-    divRiver.appendChild(createText(texts));
-    return divRiver;
+    divConsole.appendChild(createConsoleTitle(title));
+    divConsole.appendChild(createImages(images, title));
+    divConsole.appendChild(createText(texts));
+    return divConsole;
 }
 
 const divConsoles = document.querySelector(".consoles");
